@@ -48,19 +48,19 @@ body {
 	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
 	position: absolute;	/* The positioning starts from its parent element since the parent has been set
 											 * its position to relative */
 	top: 4rem;
 	left: 4rem;
 }
 
-.logo {
+.header__logo {
 	height: 3.5rem;
 	/* We don't specify the width, this way the browser calculates it based on the height and img resolution */
 }
 
-.text-box {
+.header__text-box {
 	position: absolute;
 	top: 40%;
 	left: 50%; /* 50% from the parent element */
@@ -77,7 +77,7 @@ body {
 	margin-bottom: 60px;
 }
 
-.heading-primary-main {
+.heading-primary--main {
 	display: block; /* block elements occupies the entire width available */
 	font-size: 6rem;
 	font-weight: 700;
@@ -91,7 +91,7 @@ body {
 	/* animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
 	display: block;
 	font-size: 2rem;
 	font-weight: 2rem;
@@ -180,7 +180,7 @@ properties */
 	transform: translateY(-1px);
 }
 
-.btn-white {
+.btn--white {
 	background-color: #fff;
 	color: #777;
 }
@@ -198,7 +198,7 @@ properties */
 	transition: all .4s;
 }
 
-.btn-white::after {
+.btn--white::after {
 	background-color: #fff;
 }
 
@@ -208,7 +208,7 @@ properties */
 	opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
 	animation: moveInBottom 1s ease-out 1s;	/* Final argument (.75s) is for the delay to start the animation */
 	animation-fill-mode: backwards;	/* We specify backwards so the properties of the animation are applied since the beginning */
 }
