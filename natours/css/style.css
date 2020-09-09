@@ -6,209 +6,191 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 /* Universal selector */
 *,
 *::after,
 *::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
 
 html {
-	font-size: 62.5%; /* 10px / 16px = 0.625 = 62.5%, we have to put this as % so if the user has changed
+  font-size: 62.5%;
+  /* 10px / 16px = 0.625 = 62.5%, we have to put this as % so if the user has changed
 	* the default font size, it adjusts to this font-size, the default font-size for browsers
-	* is 16px and what we want is 10px, so 62.5% of 16px is 10px */
-}
+	* is 16px and what we want is 10px, so 62.5% of 16px is 10px */ }
 
 body {
-	font-family: "Lato", sans-serif;
-	font-weight: 400;
-	line-height: 1.7; /* Means 1.7 times bigger than the actual value */
-	color: #777;
-	padding: 3rem;
-	box-sizing: border-box; /* The width and height properties include the content, padding and border but not margin */
-}
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  /* Means 1.7 times bigger than the actual value */
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+  /* The width and height properties include the content, padding and border but not margin */ }
 
 .header {
-	height: 95vh; /* This means 95% of the Viewport Height */
-	background-image: linear-gradient(
-		to right bottom,
-		rgba(126, 213, 111, 0.8),
-		rgba(40, 180, 133, 0.8)),
-		url(../img/hero.jpg);
-		background-size: cover;	/* The image will always fit to the box */
-														/* This picture is going to ocupy 95% of the screen */
-	background-position: top; /* Sets the position of the background, this is important so the picture
+  height: 95vh;
+  /* This means 95% of the Viewport Height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* The image will always fit to the box */
+  /* This picture is going to ocupy 95% of the screen */
+  background-position: top;
+  /* Sets the position of the background, this is important so the picture
 														 * is always on "top middle" even if the screen changes */
-	position: relative;	/* Set to relative so that the children withtin this element, have their 
+  position: relative;
+  /* Set to relative so that the children withtin this element, have their 
 											 * reference from their parent, otherwise its children would reference from
 											 * the body element */
-	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-}
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); }
 
 .header__logo-box {
-	position: absolute;	/* The positioning starts from its parent element since the parent has been set
+  position: absolute;
+  /* The positioning starts from its parent element since the parent has been set
 											 * its position to relative */
-	top: 4rem;
-	left: 4rem;
-}
+  top: 4rem;
+  left: 4rem; }
 
 .header__logo {
-	height: 3.5rem;
-	/* We don't specify the width, this way the browser calculates it based on the height and img resolution */
-}
+  height: 3.5rem;
+  /* We don't specify the width, this way the browser calculates it based on the height and img resolution */ }
 
 .header__text-box {
-	position: absolute;
-	top: 40%;
-	left: 50%; /* 50% from the parent element */
-	transform: translate(-50%, -50%); /* To change the "origin" of the element to be in the middle,
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* 50% from the parent element */
+  transform: translate(-50%, -50%);
+  /* To change the "origin" of the element to be in the middle,
 																		 * instead on the top left */
-	text-align: center;	/* to align the block elements inside this to the center */
-}
+  text-align: center;
+  /* to align the block elements inside this to the center */ }
 
 .heading-primary {
-	color: #fff;
-	text-transform: uppercase;
-	
-	backface-visibility: hidden; /* To fix the Shaky animation at the end of animations */
-	margin-bottom: 60px;
-}
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* To fix the Shaky animation at the end of animations */
+  margin-bottom: 60px; }
 
 .heading-primary--main {
-	display: block; /* block elements occupies the entire width available */
-	font-size: 6rem;
-	font-weight: 700;
-	letter-spacing: 3.5rem;
-
-	animation-name: moveInLeft;
-	animation-duration: 1s;
-	animation-timing-function: ease-out;
-
-	/* animation-iteration-count: 3; */
-	/* animation-delay: 3s; */
-}
+  display: block;
+  /* block elements occupies the entire width available */
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */ }
 
 .heading-primary--sub {
-	display: block;
-	font-size: 2rem;
-	font-weight: 2rem;
-	letter-spacing: 1.75rem;
-	animation: moveInRight 1s ease-out;
-}
+  display: block;
+  font-size: 2rem;
+  font-weight: 2rem;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out; }
 
 /* The keyframes at-rule */
 @keyframes moveInLeft {
-/* Browsers are optimized for the
+  /* Browsers are optimized for the
 	* opacity
 	* transform
 properties */
-
-	/* When the animation starts */
-	/* 0% is the same as using the "from" keyword */
-	from {
-		opacity: 0;
-		transform: translateX(-10rem);
-	}
-
-	/* 60% {
+  /* When the animation starts */
+  /* 0% is the same as using the "from" keyword */
+  from {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  /* 60% {
 		transform: rotate(120deg);
 	} */
-
-	80% {
-		transform: translateX(1rem);
-	}
-
-	/* When the animation ends */
-	/* 100% is the same as using the "to" keyword */
-	to {
-		opacity: 1;
-		transform: translate(0);
-	}
-}
+  80% {
+    transform: translateX(1rem); }
+  /* When the animation ends */
+  /* 100% is the same as using the "to" keyword */
+  to {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveInRight {
-	from {
-		opacity: 0;
-		transform: translate(10rem);
-	}
-	
-	80% {
-		transform: translateX(-1rem);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
+  from {
+    opacity: 0;
+    transform: translate(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  to {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInBottom {
-	from {
-		opacity: 0;
-		transform: translateY(10rem);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
+  from {
+    opacity: 0;
+    transform: translateY(10rem); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
 
 /* :link is a pseudo class */
 .btn:link,
 .btn:visited {
-	text-transform: uppercase;
-	text-decoration: none;
-	padding: 1.5rem 4rem;
-	display: inline-block;	/* We always have to set this to apply paddings, heights, width, etc to elements */
-	border-radius: 10rem;
-	transition: all .2s;		/* All to say to apply animation to all the properties, if we wante d to only 1 property, we need to specify that */
-	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);	 /* x y blur color */
-	position: relative;	/* This is to let this element's children to position themselves with reference on the parent */
-	font-size: 1.6rem;
-}
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  /* We always have to set this to apply paddings, heights, width, etc to elements */
+  border-radius: 10rem;
+  transition: all .2s;
+  /* All to say to apply animation to all the properties, if we wante d to only 1 property, we need to specify that */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* x y blur color */
+  position: relative;
+  /* This is to let this element's children to position themselves with reference on the parent */
+  font-size: 1.6rem; }
 
 .btn:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);	 /*  */
-}
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  /*  */ }
 
 .btn:active {
-	transform: translateY(-1px);
-}
+  transform: translateY(-1px); }
 
 .btn--white {
-	background-color: #fff;
-	color: #777;
-}
+  background-color: #fff;
+  color: #777; }
 
 .btn::after {
-	content: "";
-	display: inline-block; /* This has to be the same as the parent (.btn) */
-	height: 100%;	/* 100% of the width of the parent (.btn) */
-	width: 100%;
-	border-radius: 10rem;
-	position: absolute;	/* This is to not make space for this element as a normal block would have */
-	top: 0;	/* Then we position it on the same position as its parent */
-	left: 0;
-	z-index: -1; /* Defines the position if an element is on top or below another element */
-	transition: all .4s;
-}
+  content: "";
+  display: inline-block;
+  /* This has to be the same as the parent (.btn) */
+  height: 100%;
+  /* 100% of the width of the parent (.btn) */
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  /* This is to not make space for this element as a normal block would have */
+  top: 0;
+  /* Then we position it on the same position as its parent */
+  left: 0;
+  z-index: -1;
+  /* Defines the position if an element is on top or below another element */
+  transition: all .4s; }
 
 .btn--white::after {
-	background-color: #fff;
-}
+  background-color: #fff; }
 
 /* When we hover the after pseudo element of .btn element, then: */
 .btn:hover::after {
-	transform: scale(1.1);	/* Increases the size of the element times the number inside */
-	opacity: 0;
-}
+  transform: scale(1.1);
+  /* Increases the size of the element times the number inside */
+  opacity: 0; }
 
 .btn--animated {
-	animation: moveInBottom 1s ease-out 1s;	/* Final argument (.75s) is for the delay to start the animation */
-	animation-fill-mode: backwards;	/* We specify backwards so the properties of the animation are applied since the beginning */
-}
+  animation: moveInBottom 1s ease-out 1s;
+  /* Final argument (.75s) is for the delay to start the animation */
+  animation-fill-mode: backwards;
+  /* We specify backwards so the properties of the animation are applied since the beginning */ }
