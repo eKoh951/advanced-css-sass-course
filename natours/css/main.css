@@ -1,0 +1,353 @@
+/* Universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* 10px / 16px = 0.625 = 62.5%, we have to put this as % so if the user has changed
+	* the default font size, it adjusts to this font-size, the default font-size for browsers
+	* is 16px and what we want is 10px, so 62.5% of 16px is 10px */
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* The width and height properties include the content, padding and border but not margin */
+}
+
+/* The keyframes at-rule */
+@-webkit-keyframes moveInLeft {
+  /* Browsers are optimized for the
+	* opacity
+	* transform
+properties */
+  /* When the animation starts */
+  /* 0% is the same as using the "from" keyword */
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  /* 60% {
+		transform: rotate(120deg);
+	} */
+  80% {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  /* When the animation ends */
+  /* 100% is the same as using the "to" keyword */
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+@keyframes moveInLeft {
+  /* Browsers are optimized for the
+	* opacity
+	* transform
+properties */
+  /* When the animation starts */
+  /* 0% is the same as using the "from" keyword */
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  /* 60% {
+		transform: rotate(120deg);
+	} */
+  80% {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  /* When the animation ends */
+  /* 100% is the same as using the "to" keyword */
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@-webkit-keyframes moveInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(10rem);
+            transform: translate(10rem);
+  }
+  80% {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(10rem);
+            transform: translate(10rem);
+  }
+  80% {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes moveInBottom {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10rem);
+            transform: translateY(10rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes moveInBottom {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10rem);
+            transform: translateY(10rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  /* Means 1.7 times bigger than the actual value */
+  color: #777;
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  /* To fix the Shaky animation at the end of animations */
+  margin-bottom: 60px;
+}
+
+.heading-primary--main {
+  display: block;
+  /* block elements occupies the entire width available */
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 3.5rem;
+  -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 2rem;
+  letter-spacing: 1.75rem;
+  -webkit-animation: moveInRight 1s ease-out;
+          animation: moveInRight 1s ease-out;
+}
+
+/* :link is a pseudo class */
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  /* We always have to set this to apply paddings, heights, width, etc to elements */
+  border-radius: 10rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  /* All to say to apply animation to all the properties, if we wante d to only 1 property, we need to specify that */
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* x y blur color */
+  position: relative;
+  /* This is to let this element's children to position themselves with reference on the parent */
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  /*  */
+  /* When we hover the after pseudo element of .btn element, then: */
+}
+
+.btn:hover::after {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  /* Increases the size of the element times the number inside */
+  opacity: 0;
+}
+
+.btn:active {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  /* This has to be the same as the parent (.btn) */
+  height: 100%;
+  /* 100% of the width of the parent (.btn) */
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  /* This is to not make space for this element as a normal block would have */
+  top: 0;
+  /* Then we position it on the same position as its parent */
+  left: 0;
+  z-index: -1;
+  /* Defines the position if an element is on top or below another element */
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.btn--animated {
+  -webkit-animation: moveInBottom 1s ease-out 1s;
+          animation: moveInBottom 1s ease-out 1s;
+  /* Final argument (.75s) is for the delay to start the animation */
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  /* We specify backwards so the properties of the animation are applied since the beginning */
+}
+
+.header {
+  height: 95vh;
+  /* This means 95% of the Viewport Height */
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* The image will always fit to the box */
+  /* This picture is going to ocupy 95% of the screen */
+  background-position: top;
+  /* Sets the position of the background, this is important so the picture
+														 * is always on "top middle" even if the screen changes */
+  position: relative;
+  /* Set to relative so that the children withtin this element, have their 
+											 * reference from their parent, otherwise its children would reference from
+											 * the body element */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+.header__logo-box {
+  position: absolute;
+  /* The positioning starts from its parent element since the parent has been set
+												 * its position to relative */
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+  /* We don't specify the width, this way the browser calculates it based on the height and img resolution */
+}
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* 50% from the parent element */
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /* To change the "origin" of the element to be in the middle,
+																			 * instead on the top left */
+  text-align: center;
+  /* to align the block elements inside this to the center */
+}
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.row [class^="col-"] {
+  background-color: orangered;
+  float: left;
+}
+
+.row [class^="col-"]:not(:last-child) {
+  margin-right: 6rem;
+}
+
+.row .col-1-of-2 {
+  width: calc( (100% - 6rem) / 2);
+}
+
+.row .col-1-of-3 {
+  width: calc( (100% - 2 * 6rem) / 3);
+}
+
+.row .col-2-of-3 {
+  width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem);
+}
+
+.row .col-1-of-4 {
+  width: calc( (100% - 3 * 6rem) / 4);
+}
+
+.row .col-2-of-4 {
+  width: calc( 2 * ( (100% - 3 * 6rem) / 4) + 6rem);
+}
+
+.row .col-3-of-4 {
+  width: calc( 3 * ( (100% - 3 * 6rem) / 4) + 2 * 6rem);
+}
+/*# sourceMappingURL=main.css.map */
