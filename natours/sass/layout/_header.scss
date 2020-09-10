@@ -1,0 +1,37 @@
+.header {
+	height: 95vh; /* This means 95% of the Viewport Height */
+	background-image: linear-gradient(
+		to right bottom,
+		rgba($color-primary-light, 0.8),
+		rgba($color-primary-dark, 0.8)),
+		url(../img/hero.jpg);
+		background-size: cover;	/* The image will always fit to the box */
+														/* This picture is going to ocupy 95% of the screen */
+	background-position: top; /* Sets the position of the background, this is important so the picture
+														 * is always on "top middle" even if the screen changes */
+	position: relative;	/* Set to relative so that the children withtin this element, have their 
+											 * reference from their parent, otherwise its children would reference from
+											 * the body element */
+	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+
+	&__logo-box {
+		position: absolute;	/* The positioning starts from its parent element since the parent has been set
+												 * its position to relative */
+		top: 4rem;
+		left: 4rem;
+	}
+	
+	&__logo {
+		height: 3.5rem;
+		/* We don't specify the width, this way the browser calculates it based on the height and img resolution */
+	}
+
+	&__text-box {
+		position: absolute;
+		top: 40%;
+		left: 50%; /* 50% from the parent element */
+		transform: translate(-50%, -50%); /* To change the "origin" of the element to be in the middle,
+																			 * instead on the top left */
+		text-align: center;	/* to align the block elements inside this to the center */
+	}
+}

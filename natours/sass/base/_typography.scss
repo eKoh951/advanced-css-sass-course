@@ -1,0 +1,37 @@
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	line-height: 1.7; /* Means 1.7 times bigger than the actual value */
+	color: $color-grey-dark;
+	padding: 3rem;
+}
+
+.heading-primary {
+	color: $color-white;
+	text-transform: uppercase;
+	
+	backface-visibility: hidden; /* To fix the Shaky animation at the end of animations */
+	margin-bottom: 60px;
+	
+	&--main {
+		display: block; /* block elements occupies the entire width available */
+		font-size: 6rem;
+		font-weight: 700;
+		letter-spacing: 3.5rem;
+	
+		animation-name: moveInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-out;
+	
+		/* animation-iteration-count: 3; */
+		/* animation-delay: 3s; */
+	}
+	
+	&--sub {
+		display: block;
+		font-size: 2rem;
+		font-weight: 2rem;
+		letter-spacing: 1.75rem;
+		animation: moveInRight 1s ease-out;
+	}
+}

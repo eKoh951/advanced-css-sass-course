@@ -1,0 +1,21 @@
+// Here is where we do our basic definitions for the entire project
+
+/* Universal selector */
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	// This defines what 1 rem is
+	font-size: 62.5%; /* 10px / 16px = 0.625 = 62.5%, we have to put this as % so if the user has changed
+	* the default font size, it adjusts to this font-size, the default font-size for browsers
+	* is 16px and what we want is 10px, so 62.5% of 16px is 10px */
+}
+
+body {
+	box-sizing: border-box; /* The width and height properties include the content, padding and border but not margin */
+}
