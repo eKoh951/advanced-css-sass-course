@@ -45,28 +45,25 @@ body {
 											 * reference from their parent, otherwise its children would reference from
 											 * the body element */
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  /* The positioning starts from its parent element since the parent has been set
-											 * its position to relative */
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem;
-  /* We don't specify the width, this way the browser calculates it based on the height and img resolution */ }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /* 50% from the parent element */
-  transform: translate(-50%, -50%);
-  /* To change the "origin" of the element to be in the middle,
-																		 * instead on the top left */
-  text-align: center;
-  /* to align the block elements inside this to the center */ }
+  .header__logo-box {
+    position: absolute;
+    /* The positioning starts from its parent element since the parent has been set
+												 * its position to relative */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem;
+    /* We don't specify the width, this way the browser calculates it based on the height and img resolution */ }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* 50% from the parent element */
+    transform: translate(-50%, -50%);
+    /* To change the "origin" of the element to be in the middle,
+																			 * instead on the top left */
+    text-align: center;
+    /* to align the block elements inside this to the center */ }
 
 .heading-primary {
   color: #fff;
@@ -74,25 +71,23 @@ body {
   backface-visibility: hidden;
   /* To fix the Shaky animation at the end of animations */
   margin-bottom: 60px; }
-
-.heading-primary--main {
-  display: block;
-  /* block elements occupies the entire width available */
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* animation-iteration-count: 3; */
-  /* animation-delay: 3s; */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 2rem;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
+  .heading-primary--main {
+    display: block;
+    /* block elements occupies the entire width available */
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 2rem;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
 /* The keyframes at-rule */
 @keyframes moveInLeft {
@@ -135,8 +130,7 @@ properties */
     transform: translateY(0); } }
 
 /* :link is a pseudo class */
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -154,7 +148,12 @@ properties */
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  /*  */ }
+  /*  */
+  /* When we hover the after pseudo element of .btn element, then: */ }
+  .btn:hover::after {
+    transform: scale(1.1);
+    /* Increases the size of the element times the number inside */
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px); }
@@ -162,6 +161,8 @@ properties */
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -179,15 +180,6 @@ properties */
   z-index: -1;
   /* Defines the position if an element is on top or below another element */
   transition: all .4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-/* When we hover the after pseudo element of .btn element, then: */
-.btn:hover::after {
-  transform: scale(1.1);
-  /* Increases the size of the element times the number inside */
-  opacity: 0; }
 
 .btn--animated {
   animation: moveInBottom 1s ease-out 1s;
