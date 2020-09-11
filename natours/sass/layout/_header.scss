@@ -12,7 +12,7 @@
 	position: relative;	/* Set to relative so that the children withtin this element, have their 
 											 * reference from their parent, otherwise its children would reference from
 											 * the body element */
-	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
 	&__logo-box {
 		position: absolute;	/* The positioning starts from its parent element since the parent has been set
