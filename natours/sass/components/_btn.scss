@@ -10,7 +10,7 @@
 		transition: all .2s;		/* All to say to apply animation to all the properties, if we wante d to only 1 property, we need to specify that */
 		box-shadow: 0 1rem 2rem rgba($color-black, .2);	 /* x y blur color */
 		position: relative;	/* This is to let this element's children to position themselves with reference on the parent */
-		font-size: 1.6rem;
+		font-size: $default-font-size;
 	}
 	
 	&:hover {
@@ -54,5 +54,31 @@
 	&--animated {
 		animation: moveInBottom 1s ease-out 1s;	/* Final argument (.75s) is for the delay to start the animation */
 		animation-fill-mode: backwards;	/* We specify backwards so the properties of the animation are applied since the beginning */
+	}
+}
+
+.btn-text {
+	&:link,
+	&:visited {
+		border-bottom: 1px solid $color-primary;
+		color: $color-primary;
+		display: inline-block;
+		font-size: $default-font-size;
+		padding: 5px 1rem;
+		text-decoration: none;
+		transition: all .2s;
+	}
+
+	&:hover {
+		background-color: $color-primary;
+		box-shadow: 0 .5rem 2rem rgba($color-black, .15);
+		color: #fff;
+		transform: translateY(-1px);
+	}
+	
+	&:active {
+		box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+		transform: translateY(1px);
+		
 	}
 }
