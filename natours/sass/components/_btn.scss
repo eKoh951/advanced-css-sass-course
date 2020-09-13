@@ -38,6 +38,15 @@
 		}
 	}
 	
+	&--green {
+		background-color: $color-primary;
+		color: $color-white;
+
+		&::after {
+			background-color: $color-primary;
+		}
+	}
+	
 	&::after {
 		content: "";
 		height: 100%;	/* 100% of the width of the parent (.btn) */
