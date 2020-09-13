@@ -14,9 +14,16 @@
 		url(../img/nat-4.jpg);
 		background-size: cover;
 
-	transform: skewY(-6deg);
-	
+		transform: skewY(-6deg);
+		
 	& > * { // > is to select the child, and * is to select all elements within the child
 		transform: skewY(6deg);
 	}
+}
+
+.section-tours {
+	background-color: $color-grey-light-1;
+	padding: 25rem 0 50rem 0;
+	margin-top: -10rem;
+	
 }
