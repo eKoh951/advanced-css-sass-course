@@ -282,21 +282,21 @@ body {
 
 .btn::after {
   content: "";
-  display: inline-block;
-  /* This has to be the same as the parent (.btn) */
   height: 100%;
   /* 100% of the width of the parent (.btn) */
   width: 100%;
   border-radius: 10rem;
+  display: inline-block;
+  /* This has to be the same as the parent (.btn) */
   position: absolute;
   /* This is to not make space for this element as a normal block would have */
   top: 0;
   /* Then we position it on the same position as its parent */
   left: 0;
-  z-index: -1;
-  /* Defines the position if an element is on top or below another element */
   -webkit-transition: all .4s;
   transition: all .4s;
+  z-index: -1;
+  /* Defines the position if an element is on top or below another element */
 }
 
 .btn--animated {
@@ -333,6 +333,82 @@ body {
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
+}
+
+.composition {
+  position: relative;
+}
+
+.composition__photo {
+  width: 50%;
+  position: absolute;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  outline-offset: 2rem;
+}
+
+.composition__photo:hover {
+  outline: 1.5rem solid #55c57a;
+  -webkit-transform: scale(1.05) translateY(-0.5rem);
+          transform: scale(1.05) translateY(-0.5rem);
+  -webkit-box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+.composition__photo--p1 {
+  left: 12%;
+  top: 0;
+}
+
+.composition__photo--p2 {
+  right: 10%;
+  top: 9rem;
+}
+
+.composition__photo--p3 {
+  left: 0;
+  top: 15rem;
+}
+
+.composition:hover .composition__photo:not(:hover) {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.feature-box__icon {
+  background-image: -webkit-gradient(linear, left top, right top, from(#7ed56f), to(#28b485));
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  font-size: 6rem;
+  margin-bottom: .5rem;
+}
+
+.feature-box:hover {
+  -webkit-transform: scale(1.03) translateY(-1.5rem);
+          transform: scale(1.03) translateY(-1.5rem);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .header {
@@ -431,5 +507,20 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh;
+}
+
+.section-features {
+  padding: 20rem 0;
+  margin-top: -14rem;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/nat-4.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/nat-4.jpg);
+  background-size: cover;
+  -webkit-transform: skewY(-6deg);
+          transform: skewY(-6deg);
+}
+
+.section-features > * {
+  -webkit-transform: skewY(6deg);
+          transform: skewY(6deg);
 }
 /*# sourceMappingURL=main.css.map */

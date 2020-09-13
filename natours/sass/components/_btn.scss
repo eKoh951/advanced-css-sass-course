@@ -40,15 +40,15 @@
 	
 	&::after {
 		content: "";
-		display: inline-block; /* This has to be the same as the parent (.btn) */
 		height: 100%;	/* 100% of the width of the parent (.btn) */
 		width: 100%;
 		border-radius: 10rem;
+		display: inline-block; /* This has to be the same as the parent (.btn) */
 		position: absolute;	/* This is to not make space for this element as a normal block would have */
 		top: 0;	/* Then we position it on the same position as its parent */
 		left: 0;
-		z-index: -1; /* Defines the position if an element is on top or below another element */
 		transition: all .4s;
+		z-index: -1; /* Defines the position if an element is on top or below another element */
 	}
 	
 	&--animated {
