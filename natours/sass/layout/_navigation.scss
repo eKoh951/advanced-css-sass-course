@@ -1,6 +1,6 @@
 .navigation {
 	
-	&__checkbock {
+	&__checkbox {
 		display: none;
 	}
 
@@ -13,6 +13,7 @@
 		right: 6rem;
 		border-radius: 50%;
 		z-index: 1020;
+		box-shadow: 0 1rem 3rem rgba($color-black, .1);
 	}
 
 	&__background {
@@ -25,8 +26,9 @@
 		background-image:
 			radial-gradient($color-primary-light, $color-primary-dark);
 		z-index: 1000;
+		transition: transform .8s;
 
-		transform: scale(80);
+		//transform: scale(80);
 	}
 
 	&__nav {
@@ -34,8 +36,12 @@
 		width: 100%;
 		position: fixed;
 		top: 0;
-		right: 0;
+		left: 0;
 		z-index: 1010;
+		// visibility: hidden;  Has a delay while in transition of :checked, rather use opacity and width at 0
+		opacity: 0;
+		width: 0;
+		transition: all .8s;
 	}
 
 	&__list {
@@ -45,6 +51,7 @@
 		transform: translate(-50%, -50%);
 		list-style: none;
 		text-align: center;
+		width: 100%;
 	}
 
 	&__item {
@@ -85,4 +92,13 @@
 		}
 	}
 
+	&__checkbox:checked ~ &__background {
+		transform: scale(80);
+	}
+
+	&__checkbox:checked ~ &__nav {
+		//visibility: visible; Has a delay while in transition of :checked
+		opacity: 1;
+		width: 100%;
+	}
 }
